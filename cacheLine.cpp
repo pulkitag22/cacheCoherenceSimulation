@@ -54,7 +54,7 @@ public:
     {
         if (flags == INVALID)
         {
-            return false
+            return false;
         }
         else
         {

@@ -1,4 +1,4 @@
-#include "typedefs.h"
+#include "cacheLine.cpp"
 
 class Cache
 {
@@ -8,7 +8,7 @@ protected:
     ulong busRead, intervention, invalidate, cacheToCache, flushes, memoryTransactions;
     int procs;
 
-    cacheLine **cache;
+    CacheLine **cache;
     ulong calcTag(ulong address)
     {
         return address >> numOfBitsBlock;
@@ -86,4 +86,4 @@ public:
 
     // 3 functions after the writeBack in the ref code.
     // cacheLine 4 functions in the ref. code.
-}
+};
