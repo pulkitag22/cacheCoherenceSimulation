@@ -1,64 +1,19 @@
-#include "typedefs.h"
+#include "cacheLine.h"
 
-class CacheLine
+void CacheLine::invalidate()
 {
-protected:
-    ulong tag;
-    ulong flags;
-    ulong sequence;
+    tag = 0;
+    flags = INVALID;
+}
 
-public:
-    void cacheLine()
+bool CacheLine::isValid()
+{
+    if (flags == INVALID)
     {
-        ulong tag = 0;
-        ulong flags = 0;
+        return false;
     }
-
-    void setTag(ulong inTag)
+    else
     {
-        tag = inTag;
+        return true;
     }
-
-    ulong getTag()
-    {
-        return tag;
-    }
-
-    void setFlags(ulong inFlags)
-    {
-        flags = inFlags;
-    }
-
-    ulong getFlags()
-    {
-        return flags;
-    }
-
-    void setSequence(ulong inSequence)
-    {
-        sequence = inSequence;
-    }
-
-    ulong getsequence()
-    {
-        return sequence;
-    }
-
-    void invalidate()
-    {
-        tag = 0;
-        flags = INVALID;
-    }
-
-    bool isValid()
-    {
-        if (flags == INVALID)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-};
+}
