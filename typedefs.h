@@ -2,5 +2,7 @@ typedef unsigned long ulong;
 
 enum
 {
-    INVALID
+    INVALID, 
+    VALID,
+    DIRTY
 };
